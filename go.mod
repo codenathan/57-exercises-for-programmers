@@ -1,3 +1,3 @@
-module github.com/codenathan/exercieses-for-programmers
+module github.com/codenathan/exercises-for-programmers
 
 go 1.24

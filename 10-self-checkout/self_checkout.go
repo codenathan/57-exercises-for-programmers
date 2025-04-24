@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	numbers "github.com/codenathan/exercieses-for-programmers/00-numbers"
+	numbers "github.com/codenathan/exercises-for-programmers/00-numbers"
 	"strconv"
 )
 
