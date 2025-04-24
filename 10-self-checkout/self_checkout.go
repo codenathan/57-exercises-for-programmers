@@ -1,50 +1,14 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
+	numbers "github.com/codenathan/exercieses-for-programmers/00-numbers"
 	"strconv"
-	"strings"
 )
 
 type BasketItem struct {
 	price    float64
 	quantity int
-}
-
-func getPositiveFloat(prompt string) float64 {
-	reader := bufio.NewReader(os.Stdin)
-
-	for {
-		fmt.Print(prompt)
-		input, _ := reader.ReadString('\n')
-		input = strings.TrimSpace(input)
-
-		num, err := strconv.ParseFloat(input, 64)
-		if err != nil || num < 0 {
-			fmt.Println("Please enter a valid non-negative number.")
-			continue
-		}
-		return num
-	}
-}
-
-func getPositiveInt(prompt string) int {
-	reader := bufio.NewReader(os.Stdin)
-
-	for {
-		fmt.Print(prompt)
-		input, _ := reader.ReadString('\n')
-		input = strings.TrimSpace(input)
-
-		num, err := strconv.Atoi(input)
-		if err != nil || num < 0 {
-			fmt.Println("Please enter a valid non-negative number.")
-			continue
-		}
-		return num
-	}
 }
 
 const tax = 0.055
@@ -54,8 +18,8 @@ func main() {
 	var basket []BasketItem
 
 	for i := 0; i < 3; i++ {
-		item := getPositiveFloat("Enter the price of item " + strconv.Itoa(i+1) + ": ")
-		quantity := getPositiveInt("Enter the quantity of item " + strconv.Itoa(i+1) + ": ")
+		item := numbers.GetPositiveFloat("Enter the price of item " + strconv.Itoa(i+1) + ": ")
+		quantity := numbers.GetPositiveInt("Enter the quantity of item " + strconv.Itoa(i+1) + ": ")
 		basket = append(basket, BasketItem{item, quantity})
 	}
 
