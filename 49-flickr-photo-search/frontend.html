@@ -1,0 +1,16 @@
+<input type="text" id="search" placeholder="Enter tag (e.g. nature)">
+<button id="fetch">Search</button>
+<div id="results"></div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $('#fetch').click(function() {
+        let tag = $('#search').val();
+        $.get('/api/flickr?tag=' + encodeURIComponent(tag), function(data) {
+            $('#results').empty();
+            $.each(data, function(i, url) {
+                $('#results').append(`
+		<img src="${url}" style="width:150px;margin:5px;">`);
+            });
+        });
+    });
+</script>
